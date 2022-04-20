@@ -11,6 +11,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/diabar" />
+            <option value="$PROJECT_DIR$/dialogbar" />
             <option value="$PROJECT_DIR$/happy" />
             <option value="$PROJECT_DIR$/ice" />
             <option value="$PROJECT_DIR$/images" />
