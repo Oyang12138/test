@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C3DFB9"
+    tools:context=".ImageActivity">
+
+    <RelativeLayout
+        android:id="@+id/relative_2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="#F7F7F7"
+        >
+        <ImageView
+            android:id="@+id/re_1"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/re"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/te_1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:text="hhhhhhhh"
+            android:gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        />
+
+
+
+</RelativeLayout>

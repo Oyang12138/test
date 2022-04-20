@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HappyActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拨号"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/phoneNum"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="90"
+            android:textSize="50sp"
+            android:inputType="number"
+            android:background="#C4E999"
+            />
+        <ImageView
+            android:id="@+id/toPost"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="@mipmap/phone"
+            />
+    </LinearLayout>
+
+</LinearLayout>

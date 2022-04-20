@@ -1,0 +1,20 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "helloWorld"
+include ':app'
+include ':happy'
+include ':tableball'
+include ':myadapter'
+include ':tablelayout'
+include ':images'
+include ':ice'
+include ':photo'
+include ':sync'
+include ':ivi'
+include ':diabar'
