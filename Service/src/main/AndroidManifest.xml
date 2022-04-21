@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
         <activity
-            android:name=".StartActivity"
+            android:name=".BindActivity"
             android:exported="false" />
+        <activity
+            android:name=".StartActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".StartService"/>
+
+        <service android:name=".StartService" />
     </application>
 
 </manifest>
