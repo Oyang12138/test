@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Service</string>
+    <string name="local_service_started">通知栏已出</string>
 </resources>
