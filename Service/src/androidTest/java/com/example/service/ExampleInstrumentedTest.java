@@ -1,4 +1,4 @@
-package com.example.diabar;
+package com.example.service;
 
 import android.content.Context;
 
