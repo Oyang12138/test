@@ -63,10 +63,10 @@ public class DatabaseProvider extends ContentProvider {
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         SQLiteDatabase database = helper.getReadableDatabase();
-        switch (uriMatcher.match(uri)){
+        switch (uriMatcher.match(uri)) {
             case USER_DIR:
             case USER_ITEM:
-                long newUserId = database.insert("userDemo",null,contentValues);
+                long newUserId = database.insert("userDemo", null, contentValues);
                 break;
             default:
                 break;
@@ -98,11 +98,11 @@ public class DatabaseProvider extends ContentProvider {
         int updateRow = 0;
         switch (uriMatcher.match(uri)) {
             case USER_DIR:
-                updateRow = database.update("userDemo",contentValues,s,strings);
+                updateRow = database.update("userDemo", contentValues, s, strings);
                 break;
             case USER_ITEM:
                 String updateId = uri.getPathSegments().get(1);
-                updateRow = database.update("userDemo",contentValues,"id=?",new String[]{updateId});
+                updateRow = database.update("userDemo", contentValues, "id=?", new String[]{updateId});
                 break;
             default:
                 break;

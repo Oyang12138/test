@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String updateStr = edit.getText().toString();
                 Uri uri3 = Uri.parse("content://com.example.contentprovider.database.provider/userDemo");
                 ContentValues values1 = new ContentValues();
-                values1.put("name",updateStr);
-                getContentResolver().update(uri3, values1,"name=?",new String[]{"重置"});
+                values1.put("name","重置");
+                getContentResolver().update(uri3, values1, "name=?",new String[]{updateStr});
                 break;
             default:
                 break;
