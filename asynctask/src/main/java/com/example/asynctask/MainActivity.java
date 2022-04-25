@@ -3,6 +3,9 @@ package com.example.asynctask;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -23,6 +26,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         title = findViewById(R.id.title);
+        title.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if ("  更新完成".equals(title.getText().toString())){
+                    button.setEnabled(true);
+                }
+            }
+        });
         bar = findViewById(R.id.bar);
         button = findViewById(R.id.download);
         button.setOnClickListener(new View.OnClickListener() {
@@ -30,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MyAsyncTask task = new MyAsyncTask(title, bar);
                 task.execute(1000);
+                button.setEnabled(false);
             }
         });
     }

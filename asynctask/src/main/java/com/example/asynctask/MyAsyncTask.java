@@ -1,6 +1,7 @@
 package com.example.asynctask;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,16 +19,16 @@ public class MyAsyncTask extends AsyncTask<Integer, Integer, String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        title.setText("正在更新...");
+        title.setText("  准备中");
     }
 
     @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         bar.setProgress(values[0]);
-        title.setText("正在更新(" + values[0] + "%)...");
+        title.setText("  正在更新(" + values[0] + "%)...");
         if (values[0] == 100){
-            title.setText("更新完成");
+            title.setText("  更新完成");
         }
     }
 
@@ -37,7 +38,8 @@ public class MyAsyncTask extends AsyncTask<Integer, Integer, String> {
         for (i = 10; i <= 100; i += 10){
             publishProgress(i);
             try {
-                Thread.sleep(50);
+                double b = Math.random() * 1000 + 100;
+                Thread.sleep((long) b);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
