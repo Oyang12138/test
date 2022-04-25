@@ -5,14 +5,14 @@
     android:background="@mipmap/bg3"
     android:orientation="vertical">
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="主界面"-->
-<!--        android:padding="300dp"-->
-<!--        android:textSize="30sp"-->
-<!--        android:gravity="center"-->
-<!--        />-->
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="主界面"-->
+    <!--        android:padding="300dp"-->
+    <!--        android:textSize="30sp"-->
+    <!--        android:gravity="center"-->
+    <!--        />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -22,19 +22,26 @@
             android:id="@+id/iv_head"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@mipmap/head"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@mipmap/head" />
 
         <TextView
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="oyang"
-            android:textSize="22sp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
+            android:text="oyang"
             android:textColor="@color/black"
-            android:layout_marginLeft="20dp"/>
+            android:textSize="22sp" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#F1EDCD"
+        android:text="模拟登录" />
 </LinearLayout>

@@ -1,12 +1,12 @@
 package com.example.broadcastreceiver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * BroadcastReceiver        广播接收器，四大组件之一，用于接受广播信息并作出相应处理
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendBroadcast(new Intent("com.example.contentprovider.MY_BROADCAST"));
+                sendBroadcast(new Intent("com.example.tableball.Mybroadcast"));
             }
         });
     }
