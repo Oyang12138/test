@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 start = v.findViewById(R.id.start);
                 end = v.findViewById(R.id.end);
                 seekBar = v.findViewById(R.id.seekBar);
-                seekBar.setMax(100);
-                seekBar.setMin(0);
+//                seekBar.setMax(100);
+//                seekBar.setMin(0);
                 seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         progressBar.setProgress(process);
                         TextView value = v.findViewById(R.id.value);
                         value.setText(String.valueOf(progress));
-                        value.setPadding((int)( progress * 2.85),0,0,0);
+                        value.setPadding((int)( progress * 6),0,0,0);
                     }
 
                     @Override
