@@ -2,7 +2,9 @@ package com.example.notify;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import java.util.Calendar;
 
@@ -20,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private int dx, dy;
     private int l, t, r, b;
     private NotificationManager manager;
-    private Notification notification;
     private Context context;
     private TextView time;
+    private static final int NOTIFY_ID = 10086;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
         @Override
@@ -58,8 +61,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context = this;
-        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         time = findViewById(R.id.time);
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendNotify();
+            }
+        });
+        time.performClick();
+
         view = findViewById(R.id.view);
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -81,22 +92,33 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case MotionEvent.ACTION_UP:
                     case MotionEvent.ACTION_CANCEL:
-                        if (300 > view.getBottom()) {
-                            Notification.Builder builder = new Notification.Builder(context);
-                            builder.setContentTitle("通知")
-                                    .setContentText("震惊！时钟还能这样用")
-                                    .setSubText("点击查看详情")
-                                    .setTicker("收到一条讯息")
-                                    .setWhen(System.currentTimeMillis())
-                                    .setSmallIcon(R.mipmap.phone)
-                                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-                            notification = builder.build();
-                            manager.notify(1, notification);
-                        }
+                        break;
                 }
                 return true;
             }
         });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                manager.cancel(NOTIFY_ID);
+            }
+        });
         handler.post(runnable);
+    }
+
+    private void sendNotify() {
+        Intent intent = new Intent(context, NotifyActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        Notification notification = new NotificationCompat.Builder(this, "channel_id").setContentTitle(getResources().getText(R.string.clock_title))
+                .setContentText(getResources().getText(R.string.clock_content))
+                .setSubText(getResources().getText(R.string.clock_sub))
+                .setTicker(getResources().getText(R.string.clock_ticker))
+                .setWhen(System.currentTimeMillis())
+                .setSmallIcon(R.mipmap.phone)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .build();
+        manager.notify(NOTIFY_ID, notification);
     }
 }

@@ -9,8 +9,8 @@
 
     <com.example.notify.MyView
         android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="400dp"
+        android:layout_height="600dp" />
 
     <TextView
         android:id="@+id/time"
