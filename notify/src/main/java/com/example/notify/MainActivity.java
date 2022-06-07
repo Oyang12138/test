@@ -3,11 +3,13 @@ package com.example.notify;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private int dx, dy;
     private int l, t, r, b;
     private NotificationManager manager;
+    private Vibrator vibrator;
     private Context context;
     private TextView time;
     private static final int NOTIFY_ID = 10086;
@@ -62,15 +65,24 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
         manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        vibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
         time = findViewById(R.id.time);
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendNotify();
+                vibrate();
             }
         });
         time.performClick();
-
+        time.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                manager.cancel(NOTIFY_ID);
+                vibrator.cancel();
+                return false;
+            }
+        });
         view = findViewById(R.id.view);
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -97,13 +109,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                manager.cancel(NOTIFY_ID);
-            }
-        });
         handler.post(runnable);
+    }
+
+    private void vibrate() {
+        vibrator.cancel();
+        vibrator.vibrate(new long[]{100, 200, 100, 200}, 0);
     }
 
     private void sendNotify() {
