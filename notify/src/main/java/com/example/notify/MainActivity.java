@@ -1,18 +1,23 @@
 package com.example.notify;
 
+import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Vibrator;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -20,14 +25,18 @@ import androidx.core.app.NotificationCompat;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
     private MyView view;
     private int x, y;
     private int dx, dy;
     private int l, t, r, b;
     private NotificationManager manager;
-    private Vibrator vibrator;
+    private AlarmManager alarm;
     private Context context;
     private TextView time;
+    private Intent intent;
+    private PendingIntent pendingIntent;
+    private SharedPreferences preferences;
     private static final int NOTIFY_ID = 10086;
     private Handler handler = new Handler();
     private Runnable runnable = new Runnable() {
@@ -65,24 +74,29 @@ public class MainActivity extends AppCompatActivity {
 
         context = this;
         manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        vibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
+        alarm = (AlarmManager) getSystemService(Service.ALARM_SERVICE);
+        preferences = context.getSharedPreferences("com.example.notify.ALARM", Context.MODE_PRIVATE);
+
+        intent = new Intent(context, NotifyActivity.class);
+        pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+
         time = findViewById(R.id.time);
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendNotify();
-                vibrate();
+
+                setAlarm();
             }
         });
-        time.performClick();
         time.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 manager.cancel(NOTIFY_ID);
-                vibrator.cancel();
                 return false;
             }
         });
+
         view = findViewById(R.id.view);
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -109,17 +123,31 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         handler.post(runnable);
     }
 
-    private void vibrate() {
-        vibrator.cancel();
-        vibrator.vibrate(new long[]{100, 200, 100, 200}, 0);
+    private void setAlarm() {
+        Calendar calendar = Calendar.getInstance();
+        AlertDialog dialog = new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(System.currentTimeMillis());
+                c.set(Calendar.HOUR_OF_DAY, hour);
+                c.set(Calendar.MINUTE, minute);
+                alarm.set(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("hour", hour);
+                editor.putInt("minute", minute);
+                editor.commit();
+                editor.clear();
+            }
+        }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+        dialog.show();
     }
 
     private void sendNotify() {
-        Intent intent = new Intent(context, NotifyActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Notification notification = new NotificationCompat.Builder(this, "channel_id").setContentTitle(getResources().getText(R.string.clock_title))
                 .setContentText(getResources().getText(R.string.clock_content))
                 .setSubText(getResources().getText(R.string.clock_sub))

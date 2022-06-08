@@ -1,0 +1,19 @@
+ git remote add origin https://gitee.com/AdminRDC/git-test-warehouse.git
+ https://github.com/Oyang12138/test.git
+bash: $'\302\226git': command not found
+fatal: unsafe repository ('//VBoxSvr/SharedDir/code/helloWorld' is owned by someone else)
+To add an exception for this directory, call:
+
+        git config --global --add safe.directory '%(prefix)///VBoxSvr/SharedDir/code/helloWorld'
+
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+https://github.com/login/oauth/authorize?client_id=0120e057bd645470c1ed&code_challenge=cLRD_6yUQwZ3a0X2nV0xsoYJkDybVLm_TMiBw2WjnwI&code_challenge_method=S256&redirect_uri=http%3A%2F%2Flocalhost%3A51806%2F&response_type=code&scope=repo+gist+workflow&state=295392559daa4a9daf3c94a64bfa5763
+
+token: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
+
+https://cloud.fanyu.com/organ/lib/bhu
