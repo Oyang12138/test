@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".PowerActivity">
+
+    <TextView
+        android:id="@+id/switch_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="屏幕和键盘灯有可能是关闭的"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/switch_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="允许保持屏幕显示但可能是灰的，允许关闭键盘灯"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/switch_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="允许保持屏幕高亮显示，允许关闭键盘灯"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/switch_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="保持屏幕高亮显示，键盘灯也保持亮度"
+        android:textColor="@color/black" />
+
+</LinearLayout>

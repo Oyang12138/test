@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MsgActivity">
+
+    <EditText
+        android:id="@+id/telephone"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="to:"
+        android:inputType="number"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:hint="msg:"
+        android:minLines="10"
+        android:maxEms="70"/>
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="发送" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="-355dp">
+
+        <TextView
+            android:id="@+id/flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="×"
+            android:textColor="#D50000"
+            android:textSize="30sp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

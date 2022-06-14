@@ -9,9 +9,16 @@
         android:name="android.permission.INTERNAL_SYSTEM_WINDOW"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.TYPE_APPLICATION_OVERLAY" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
@@ -21,6 +28,12 @@
         android:roundIcon="@mipmap/window"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
+        <activity
+            android:name=".PowerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MsgActivity"
+            android:exported="false" />
         <activity
             android:name=".TelActivity"
             android:exported="false" />

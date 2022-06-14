@@ -9,10 +9,26 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/power"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="电源管理"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="短信管理"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/tel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="电话信息"
+        android:text="电话管理"
         android:textSize="30sp"
         android:textStyle="bold" />
 

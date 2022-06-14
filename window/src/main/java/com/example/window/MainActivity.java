@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView power;
+    private TextView msg;
     private TextView tel;
     private TextView hand;
     private TextView voice;
@@ -24,6 +26,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        Toast.makeText(MainActivity.this, "当前屏幕宽为 " + getScreenWidth(this) + ",高为 " + getScreenHeight(this), Toast.LENGTH_SHORT).show();
+
+        power = findViewById(R.id.power);
+        power.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PowerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        msg = findViewById(R.id.msg);
+        msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MsgActivity.class);
+                startActivity(intent);
+            }
+        });
 
         tel = findViewById(R.id.tel);
         tel.setOnClickListener(new View.OnClickListener() {
