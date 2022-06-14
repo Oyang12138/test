@@ -79,10 +79,10 @@ public class TelActivity extends AppCompatActivity {
         }
         status.append(states[manager.getSimState()]);
 
-        PhoneStateListener phoneStateListener = new PhoneStateListener(){
+        PhoneStateListener phoneStateListener = new PhoneStateListener() {
             @Override
             public void onCallStateChanged(int state, String phoneNumber) {
-                switch (state){
+                switch (state) {
                     case TelephonyManager.CALL_STATE_RINGING:
                         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         phone.append(phoneNumber + "  dateTime-->" + format.format(new Date()));
@@ -92,7 +92,7 @@ public class TelActivity extends AppCompatActivity {
                 super.onCallStateChanged(state, phoneNumber);
             }
         };
-        manager.listen(phoneStateListener,PhoneStateListener.LISTEN_CALL_STATE);
+        manager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
 
     private class MyPhoneStateListener extends PhoneStateListener {

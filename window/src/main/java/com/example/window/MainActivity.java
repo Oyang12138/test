@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         tel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,TelActivity.class);
+                Intent intent = new Intent(MainActivity.this, TelActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         hand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,HandActivity.class);
+                Intent intent = new Intent(MainActivity.this, HandActivity.class);
                 startActivity(intent);
             }
         });
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         voice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,AudioActivity.class);
+                Intent intent = new Intent(MainActivity.this, AudioActivity.class);
                 startActivity(intent);
             }
         });
