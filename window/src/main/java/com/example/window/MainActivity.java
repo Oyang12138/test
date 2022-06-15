@@ -4,14 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView drawer;
     private TextView power;
     private TextView msg;
     private TextView tel;
@@ -22,10 +26,35 @@ public class MainActivity extends AppCompatActivity {
     private TextView exit;
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if ("关于我们".equals(item.getTitle())){
+            Toast.makeText(MainActivity.this, "详情请致电183****8452", Toast.LENGTH_SHORT).show();
+        }else if ("帮助".equals(item.getTitle())){
+            Toast.makeText(MainActivity.this, "暂无服务", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        Toast.makeText(MainActivity.this, "当前屏幕宽为 " + getScreenWidth(this) + ",高为 " + getScreenHeight(this), Toast.LENGTH_SHORT).show();
+
+        drawer = findViewById(R.id.drawer);
+        drawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DrawerActivity.class);
+                startActivity(intent);
+            }
+        });
 
         power = findViewById(R.id.power);
         power.setOnClickListener(new View.OnClickListener() {

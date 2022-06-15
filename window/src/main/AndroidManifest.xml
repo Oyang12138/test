@@ -29,6 +29,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
         <activity
+            android:name=".DrawerActivity"
+            android:exported="false" />
+        <activity
             android:name=".PowerActivity"
             android:exported="false" />
         <activity

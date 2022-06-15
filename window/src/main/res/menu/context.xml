@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/blue"
+            android:title="蓝色" />
+        <item
+            android:id="@+id/green"
+            android:title="绿色" />
+        <item
+            android:id="@+id/red"
+            android:title="红色" />
+        <item
+            android:id="@+id/other"
+            android:title="其它>">
+            <menu>
+                <group android:checkableBehavior="none">
+                    <item
+                        android:id="@+id/white"
+                        android:title="白色" />
+                    <item
+                        android:id="@+id/pink"
+                        android:title="粉色" />
+                    <item
+                        android:id="@+id/purple"
+                        android:title="紫色" />
+                </group>
+            </menu>
+        </item>
+    </group>
+</menu>
