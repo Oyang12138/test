@@ -29,6 +29,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloWorld">
         <activity
+            android:name=".PagerTabHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagerTabStripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagerTitleStripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PagerActivity"
+            android:exported="false" />
+        <activity
             android:name=".DrawerActivity"
             android:exported="false" />
         <activity

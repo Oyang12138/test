@@ -2,9 +2,12 @@ package com.example.window;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView pager;
     private TextView drawer;
     private TextView power;
     private TextView msg;
@@ -33,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if ("关于我们".equals(item.getTitle())){
+        if ("关于我们".equals(item.getTitle())) {
             Toast.makeText(MainActivity.this, "详情请致电183****8452", Toast.LENGTH_SHORT).show();
-        }else if ("帮助".equals(item.getTitle())){
+        } else if ("帮助".equals(item.getTitle())) {
             Toast.makeText(MainActivity.this, "暂无服务", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
@@ -46,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        Toast.makeText(MainActivity.this, "当前屏幕宽为 " + getScreenWidth(this) + ",高为 " + getScreenHeight(this), Toast.LENGTH_SHORT).show();
+
+        pager = findViewById(R.id.pager);
+        registerForContextMenu(pager);
+        pager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "LongClick", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         drawer = findViewById(R.id.drawer);
         drawer.setOnClickListener(new View.OnClickListener() {
@@ -154,5 +167,35 @@ public class MainActivity extends AppCompatActivity {
 
     public static int getScreenHeight(Context context) {
         return getScreenWindow(context)[1];
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater inflater = new MenuInflater(this);
+        inflater.inflate(R.menu.page_context, menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Intent intent = null;
+        switch (item.getItemId()) {
+            case R.id.one:
+                intent = new Intent(MainActivity.this, PagerActivity.class);
+                break;
+            case R.id.two:
+                intent = new Intent(MainActivity.this, PagerTitleStripActivity.class);
+                break;
+            case R.id.three:
+                intent = new Intent(MainActivity.this, PagerTabStripActivity.class);
+                break;
+            case R.id.four:
+                intent = new Intent(MainActivity.this, PagerTabHostActivity.class);
+                break;
+        }
+        if (null != intent) {
+            startActivity(intent);
+        }
+        return true;
     }
 }
