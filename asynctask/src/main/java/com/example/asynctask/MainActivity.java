@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MyAsyncTask task = new MyAsyncTask(title, bar);
                 task.execute(1000);
+                CopyAsyncTask copyAsyncTask = new CopyAsyncTask();
+                copyAsyncTask.execute()
                 button.setEnabled(false);
             }
         });

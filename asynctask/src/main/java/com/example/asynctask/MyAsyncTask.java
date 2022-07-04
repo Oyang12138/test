@@ -1,5 +1,6 @@
 package com.example.asynctask;
 
+import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -14,6 +15,7 @@ public class MyAsyncTask extends AsyncTask<Integer, Integer, String> {
         super();
         this.title = title;
         this.bar = bar;
+        AlertDialog.Builder builder = new AlertDialog.Builder(bar.getContext()).setTitle()
     }
 
     @Override

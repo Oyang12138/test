@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView camera;
     private TextView pager2;
     private TextView pager;
     private TextView drawer;
@@ -51,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        Toast.makeText(MainActivity.this, "当前屏幕宽为 " + getScreenWidth(this) + ",高为 " + getScreenHeight(this), Toast.LENGTH_SHORT).show();
+
+        camera = findViewById(R.id.camera);
+        camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
 
         pager2 = findViewById(R.id.pager2);
         pager2.setOnClickListener(new View.OnClickListener() {
