@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="×"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#505050">
+
+        <TextView
+            android:id="@+id/close_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="关"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/intelligence_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="智能"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/custom_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="自定义"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/classical_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="古典"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/popular_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="流行"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/voice_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="人声"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/jazz_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="爵士"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/rock_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="摇滚"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_rg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:paddingBottom="40dp">
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/first_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0dB" />
+
+            <com.example.window.VerticalBar
+                android:id="@+id/vertical_first"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:max="7"
+                android:maxHeight="6dp"
+                android:min="-7"
+                android:progress="0"
+                android:progressDrawable="@drawable/vertical_bar"
+                android:thumbTint="#E60F4C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="80HZ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/second_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0dB" />
+
+            <com.example.window.VerticalBar
+                android:id="@+id/vertical_second"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:max="7"
+                android:maxHeight="6dp"
+                android:min="-7"
+                android:progress="0"
+                android:progressDrawable="@drawable/vertical_bar"
+                android:thumbTint="#E60F4C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500HZ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/third_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0dB" />
+
+            <com.example.window.VerticalBar
+                android:id="@+id/vertical_third"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:max="7"
+                android:maxHeight="6dp"
+                android:min="-7"
+                android:progress="0"
+                android:progressDrawable="@drawable/vertical_bar"
+                android:thumbTint="#E60F4C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1KHZ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/forth_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0dB" />
+
+            <com.example.window.VerticalBar
+                android:id="@+id/vertical_forth"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:max="7"
+                android:maxHeight="6dp"
+                android:min="-7"
+                android:progress="0"
+                android:progressDrawable="@drawable/vertical_bar"
+                android:thumbTint="#E60F4C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5KHZ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fifth_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0dB" />
+
+            <com.example.window.VerticalBar
+                android:id="@+id/vertical_fifth"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:max="7"
+                android:maxHeight="6dp"
+                android:min="-7"
+                android:progress="0"
+                android:progressDrawable="@drawable/vertical_bar"
+                android:thumbTint="#E60F4C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="16KHZ" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="还原"
+        android:textSize="25sp"
+        android:visibility="invisible" />
+
+</LinearLayout>

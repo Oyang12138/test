@@ -9,6 +9,14 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="音乐列表"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
