@@ -51,8 +51,8 @@ public class MusicActivity extends AppCompatActivity {
     private TextView fifthBar;
     private TextView reset;
     private LinearLayout background;
-    private VerticalBar mFirstVerticalBar;
-    private VerticalBar mSecondVerticalBar;
+    private SeekBar mFirstVerticalBar;
+    private SeekBar mSecondVerticalBar;
     private VerticalBar mThirdVerticalBar;
     private VerticalBar mForthVerticalBar;
     private VerticalBar mFifthVerticalBar;
@@ -76,13 +76,6 @@ public class MusicActivity extends AppCompatActivity {
             thirdBar = view.findViewById(R.id.third_bar);
             forthBar = view.findViewById(R.id.forth_bar);
             fifthBar = view.findViewById(R.id.fifth_bar);
-
-            mEqualizer = new Equalizer(0,mPlayer.getAudioSessionId());
-            mEqualizer.setEnabled(true);
-
-            short band = mEqualizer.getNumberOfBands();
-            final short minEq = mEqualizer.getBandLevelRange()[0];
-            final short maxEq = mEqualizer.getBandLevelRange()[1];
 
             mFirstVerticalBar = view.findViewById(R.id.vertical_first);
             mFirstVerticalBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -120,22 +113,22 @@ public class MusicActivity extends AppCompatActivity {
                 }
             });
             mThirdVerticalBar = view.findViewById(R.id.vertical_third);
-            mThirdVerticalBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    thirdBar.setText(String.valueOf(progress) + "dB");
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
-                }
-            });
+//            mThirdVerticalBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//                @Override
+//                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                    thirdBar.setText(String.valueOf(progress) + "dB");
+//                }
+//
+//                @Override
+//                public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//                }
+//
+//                @Override
+//                public void onStopTrackingTouch(SeekBar seekBar) {
+//
+//                }
+//            });
             mForthVerticalBar = view.findViewById(R.id.vertical_forth);
             mForthVerticalBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override

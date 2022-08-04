@@ -44,4 +44,21 @@
         android:layout_gravity="center"
         android:background="#F1EDCD"
         android:text="模拟登录" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小牛SN号:123456789A"
+        android:fontFamily="@font/sourcehansanscn_regular"
+        android:textSize="60sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小牛SN号:123456789A"
+        android:fontFamily="sans-serif"
+        android:textSize="60sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="小牛SN号:123456789A"
+        android:textSize="60sp"/>
 </LinearLayout>

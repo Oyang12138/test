@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/dialogs_bg"
     android:orientation="vertical">
 
     <TextView
@@ -114,16 +115,15 @@
                 android:layout_height="wrap_content"
                 android:text="0dB" />
 
-            <com.example.window.VerticalBar
-                android:id="@+id/vertical_first"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:max="7"
-                android:maxHeight="6dp"
-                android:min="-7"
-                android:progress="0"
-                android:progressDrawable="@drawable/vertical_bar"
-                android:thumbTint="#E60F4C" />
+            <com.example.window.VerticalSeekBar
+                android:layout_width="wrap_content"
+                android:layout_height="180dp">
+                <SeekBar
+                    android:id="@+id/vertical_first"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.example.window.VerticalSeekBar>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
             android:gravity="center"
@@ -152,8 +152,8 @@
                 android:maxHeight="6dp"
                 android:min="-7"
                 android:progress="0"
-                android:progressDrawable="@drawable/vertical_bar"
-                android:thumbTint="#E60F4C" />
+                android:background="@mipmap/unfoucs_value"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -182,8 +182,7 @@
                 android:maxHeight="6dp"
                 android:min="-7"
                 android:progress="0"
-                android:progressDrawable="@drawable/vertical_bar"
-                android:thumbTint="#E60F4C" />
+                android:progressDrawable="@drawable/vertical_bar" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -212,8 +211,7 @@
                 android:maxHeight="6dp"
                 android:min="-7"
                 android:progress="0"
-                android:progressDrawable="@drawable/vertical_bar"
-                android:thumbTint="#E60F4C" />
+                android:progressDrawable="@drawable/vertical_bar" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -241,8 +239,7 @@
                 android:maxHeight="6dp"
                 android:min="-7"
                 android:progress="0"
-                android:progressDrawable="@drawable/vertical_bar"
-                android:thumbTint="#E60F4C" />
+                android:progressDrawable="@drawable/vertical_bar" />
 
             <TextView
                 android:layout_width="wrap_content"

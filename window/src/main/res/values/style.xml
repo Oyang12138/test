@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="my_progressbar_style_vertical" parent="Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/vertical_bar</item>
+        <item name="android:progressDrawable">@mipmap/foucs_value</item>
     </style>
 </resources>
